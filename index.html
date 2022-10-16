@@ -24,24 +24,34 @@
 <script src="./tailwind.config.js"></script>
 </head>
 
-<body class="flex justify-center bg-gray-100">
-  <section class="max-w-[840px] w-full my-5 bg-primary">
+<body class="flex xl:flex-row flex-col xl:items-start items-center justify-center bg-gray-100">
+  <section class="max-w-[840px] w-[90%] my-5 bg-primary mx-4">
     <div class="p-[36px]">
       <main id="list"></main>
     </div>
-    <footer class="flex justify-between items-center bg-secondary mx-[36px] mt-[100px] p-[36px]">
-      <div>
-        <p class="text-[28px] text-primary font-normal">升級</p>
-        <p class="text-[28px] text-primary font-normal">UPGRADES</p>
+    <footer
+      class="md:flex justify-between items-center bg-secondary mx-[36px] md:mt-[100px] mt-[30px] md:p-[36px] p-[18px]">
+      <div class="md:text-start text-center md:mb-0 mb-2">
+        <p class="md:text-[28px] text-[20px] text-primary font-normal">升級</p>
+        <p class="md:text-[28px] text-[20px] text-primary font-normal">UPGRADES</p>
       </div>
-      <ul class="text-white text-[26px] basis-[70%]">
-        <li class="flex justify-between items-center">+ 閃電濃縮EXTRA EXPRESSO SHOT<span>10</span></li>
-        <li class="flex justify-between items-center">OATLY 燕麥奶 OTAL MILK<span>20</span></li>
-        <li class="flex justify-between items-center">榛果可可醬 NUTELLA(10g)<span>5</span></li>
+      <ul class="text-white md:text-[26px] text-[18px] basis-[70%]">
+        <li class="flex justify-between items-center">
+          <p class="text-white font-normal">+ 閃電濃縮 <span class="md:inline hidden">EXTRA EXPRESSOSHOT</span></p>
+          <span>10</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <p class="text-white font-normal">OATLY 燕麥奶 <span class="md:inline hidden">OTAL MILK</span></p>
+          <span>20</span>
+        </li>
+        <li class="flex justify-between items-center">
+          <p class="text-white font-normal">榛果可可醬 <span class="md:inline hidden">NUTELLA(10g)</span></p>
+          <span>5</span>
+        </li>
       </ul>
     </footer>
   </section>
-  <section class="ml-20 rounded shadow-lg p-10 h-full bg-white sticky top-5">
+  <section class="2xl:ml-10 mr-4 mx-4 rounded shadow-lg p-10 h-full bg-white sticky top-5 mb-5">
     <h2 class="text-gray-900 text-center text-[28px] mb-5 border-b pb-3">設定</h2>
     <form class="w-full max-w-lg" target="iframe" id="form">
       <div class="flex justify-center mb-5">
@@ -55,7 +65,7 @@
         </div>
       </div>
       <div class="flex flex-wrap -mx-3 mb-2" id="settingType">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <div class="w-full 2xl:w-1/2 px-3 mb-6">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-state">
             類別
           </label>
@@ -64,7 +74,7 @@
         </div>
       </div>
       <div class="flex flex-wrap -mx-3 mb-6">
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 hidden" id="inputType">
+        <div class="w-full 2xl:w-1/2 px-3 mb-6 hidden" id="inputType">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             類別名稱
           </label>
@@ -72,7 +82,7 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             type="text" id="inputTypeTitle">
         </div>
-        <div class="w-full md:w-1/2 px-3 hidden" id="inputTypeEn">
+        <div class="w-full 2xl:w-1/2 px-3 hidden mb-6" id="inputTypeEn">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             類別英文名稱
           </label>
@@ -80,7 +90,7 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="text" id="inputTypeTitleEn">
         </div>
-        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+        <div class="w-full 2xl:w-1/2 px-3 mb-6">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             品項名稱
           </label>
@@ -88,7 +98,7 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
             type="text" id="inputItemTitle" required>
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div class="w-full 2xl:w-1/2 px-3 mb-6">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             品項英文名稱
           </label>
@@ -96,21 +106,21 @@
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
             type="text" id="inputItemTitleEn" required>
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div class="w-full 2xl:w-1/2 px-3 mb-6">
           <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             中杯價錢
           </label>
           <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            type="number" id="inputMidPrice" required>
+            type="number" id="inputMidPrice" required max="999">
         </div>
-        <div class="w-full md:w-1/2 px-3">
+        <div class="w-full 2xl:w-1/2 px-3 mb-2">
           <label class="text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
             大杯價錢
           </label>
           <input
             class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
-            type="number" id="inputBigPrice" required>
+            type="number" id="inputBigPrice" required max="999">
         </div>
         <div class="w-full px-3 mt-2">
           <label class="text-gray-700 text-lg font-bold mb-2 mr-4 cursor-pointer">

@@ -6,6 +6,9 @@ tailwind.config = {
         secondary: '#e92769',
         line: '#6de8da'
       },
+      screens: {
+        '2sm': '450px',
+      },
     },
   },
 }
