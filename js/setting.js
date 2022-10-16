@@ -28,6 +28,20 @@ const setInputValue = () => {
   inputMidPrice.value = menu[targetType].item[targetitem].midPrice;
 }
 
+const setCheckbox = () => {
+  if (menu[targetType].item[targetitem].type.length === 2) {
+    checkbox.forEach((item) => {
+      item.checked = true;
+      checkboxData.push(item.value);
+    })
+  } else {
+    checkbox.forEach((item) => {
+      item.checked = item.value.includes(menu[targetType].item[targetitem].type[0]);
+    })
+    checkboxData.push(menu[targetType].item[targetitem].type[0]);
+  }
+}
+
 const resetValue = () => {
   form.reset();
   menu[targetType].item.forEach((item) => {
@@ -48,19 +62,9 @@ radio.forEach((item) => item.addEventListener("change", (e) => {
     selectDom.removeAttribute("required");
     inputTypeStatus(true);
 
-    const targetData = menu[0];
     setInputValue();
-    if (targetData.item[0].type.length === 2) {
-      checkbox.forEach((item) => {
-        item.checked = true;
-        checkboxData.push(item.value);
-      })
-    } else {
-      checkbox.forEach((item) => {
-        item.checked = item.value.includes(targetData.item[0].type[0]);
-      })
-      checkboxData.push(targetData.item[0].type[0]);
-    }
+    setCheckbox();
+
     menu[0].item[0].edit = true;
     menu[0].edit = true;
   } else {
@@ -100,13 +104,16 @@ list.addEventListener("click", (e) => {
 
   menu.forEach((item, index) => {
     item.edit = index === +targetType;
-  })
+  });
   menu[targetType].item.forEach((item, index) => {
     item.edit = index === +targetitem;
-  })
+  });
+
   renderList(menu, "edit");
 
   setInputValue();
+  checkboxData.length = 0;
+  setCheckbox();
 })
 
 export default (e) => {
