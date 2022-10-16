@@ -44,7 +44,7 @@ const setCheckbox = () => {
 
 const resetValue = () => {
   form.reset();
-  menu[targetType].item.forEach((item) => {
+  menu[targetType]?.item.forEach((item) => {
     item.edit = false;
   });
   targetType = 0;
