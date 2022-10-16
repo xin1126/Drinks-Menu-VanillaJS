@@ -120,6 +120,8 @@ list.addEventListener("click", (e) => {
 export default (e) => {
   if (!inputItemTitle.value || !inputItemTitleEn.value || !inputMidPrice.value || !inputBigPrice.value) return;
 
+  if (inputMidPrice.value > 999 || inputBigPrice.value > 999) return
+
   if (!checkboxData.length) return checkboxError.classList.remove("hidden");
 
   const obj = {
