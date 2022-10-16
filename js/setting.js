@@ -62,6 +62,7 @@ radio.forEach((item) => item.addEventListener("change", (e) => {
       checkboxData.push(targetData.item[0].type[0]);
     }
     menu[0].item[0].edit = true;
+    menu[0].edit = true;
   } else {
     resetValue();
   }
@@ -80,22 +81,26 @@ checkbox.forEach((item) => item.addEventListener("change", () => {
 }));
 
 list.addEventListener("click", (e) => {
+  if (e.target.nodeName !== "I") return;
+
   targetType = e.target.getAttribute("data-type");
   targetitem = e.target.getAttribute("data-item");
   const title = menu[targetType].item[targetitem].title;
-
   if (e.target.classList.contains("fa-trash")) {
     const deleteStatus = confirm(`你確定要刪除${title}?`);
     if (!deleteStatus) return;
     menu[targetType].item.splice(targetitem, 1);
     if (!menu[targetType].item.length) menu.splice(targetType, 1);
+    resetValue();
     renderList(menu);
     renderType(menu);
-    resetValue();
     setTimeout(() => alert(`刪除${title}成功!`), 0);
     return;
   }
 
+  menu.forEach((item, index) => {
+    item.edit = index === +targetType;
+  })
   menu[targetType].item.forEach((item, index) => {
     item.edit = index === +targetitem;
   })

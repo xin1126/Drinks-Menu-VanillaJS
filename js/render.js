@@ -29,7 +29,7 @@ export const renderList = (menu, status = "add") => {
     data.item.forEach((item, key) => {
       str += `
         <ul>
-          <li class="flex items-center mb-[20px] relative ${item.edit ? "opacity-50" : ""}">
+          <li class="flex items-center mb-[20px] relative ${item.edit && data.edit ? "opacity-50" : ""}">
             <div class="basis-[50%]">
               <h2 class="text-[32px]">${item.title}</h2>
               <p class="text-[26px]">${item.titleEn}</p>
