@@ -13,4 +13,7 @@ const init = () => {
 
 init();
 
-window.onresize = () => init();
+window.onresize = () => {
+  if (window.innerWidth < 440) return;
+  init();
+}
