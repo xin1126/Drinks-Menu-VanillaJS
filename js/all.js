@@ -6,5 +6,11 @@ const saveButton = document.querySelector("#saveButton");
 
 saveButton.addEventListener("click", (e) => saveData(e));
 
-renderList(menu);
-renderType(menu);
+const init = () => {
+  renderList(menu);
+  renderType(menu);
+};
+
+init();
+
+window.onresize = () => init();
