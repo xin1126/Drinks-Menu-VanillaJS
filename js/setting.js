@@ -50,6 +50,7 @@ const resetValue = () => {
   targetType = 0;
   targetitem = 0;
   checkboxData.length = 0;
+  radioStatus = "add";
   settingType.classList.remove("hidden");
   selectDom.setAttribute("required", "required");
   inputTypeStatus(false);
