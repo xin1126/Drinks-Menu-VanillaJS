@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="zh-Hant-TW">
+
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>tailwindcss</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <style type="text/tailwindcss">
+    body {
+      font-family: emoji;
+      line-height: initial;
+    }
+
+    h2, p {
+      @apply text-secondary font-bold;
+    }
+  </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css"
+    integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<script src="./tailwind.config.js"></script>
+</head>
+
+<body class="flex justify-center bg-gray-100">
+  <section class="max-w-[840px] w-full my-5 bg-primary">
+    <div class="p-[36px]">
+      <main id="list"></main>
+    </div>
+    <footer class="flex justify-between items-center bg-secondary mx-[36px] mt-[100px] p-[36px]">
+      <div>
+        <p class="text-[28px] text-primary font-normal">升級</p>
+        <p class="text-[28px] text-primary font-normal">UPGRADES</p>
+      </div>
+      <ul class="text-white text-[26px] basis-[70%]">
+        <li class="flex justify-between items-center">+ 閃電濃縮EXTRA EXPRESSO SHOT<span>10</span></li>
+        <li class="flex justify-between items-center">OATLY 燕麥奶 OTAL MILK<span>20</span></li>
+        <li class="flex justify-between items-center">榛果可可醬 NUTELLA(10g)<span>5</span></li>
+      </ul>
+    </footer>
+  </section>
+  <section class="ml-20 rounded shadow-lg p-10 h-full bg-white sticky top-5">
+    <h2 class="text-gray-900 text-center text-[28px] mb-5 border-b pb-3">設定</h2>
+    <form class="w-full max-w-lg" target="iframe" id="form">
+      <div class="flex justify-center mb-5">
+        <div class="flex items-center mr-4">
+          <input id="add-radio" type="radio" value="add" name="colored-radio" class="cursor-pointer" checked>
+          <label for="add-radio" class="ml-2 font-bold cursor-pointer">新增品項</label>
+        </div>
+        <div class="flex items-center">
+          <input id="edit-radio" type="radio" value="edit" name="colored-radio" class="cursor-pointer">
+          <label for="edit-radio" class="ml-2 font-bold cursor-pointer">編輯品項</label>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-2" id="settingType">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-state">
+            類別
+          </label>
+          <div class="relative" id="selectType">
+          </div>
+        </div>
+      </div>
+      <div class="flex flex-wrap -mx-3 mb-6">
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0 hidden" id="inputType">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            類別名稱
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            type="text" id="inputTypeTitle">
+        </div>
+        <div class="w-full md:w-1/2 px-3 hidden" id="inputTypeEn">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            類別英文名稱
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="text" id="inputTypeTitleEn">
+        </div>
+        <div class="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            品項名稱
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white"
+            type="text" id="inputItemTitle" required>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            品項英文名稱
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="text" id="inputItemTitleEn" required>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label class=" text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            中杯價錢
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="number" id="inputMidPrice" required>
+        </div>
+        <div class="w-full md:w-1/2 px-3">
+          <label class="text-gray-700 text-lg font-bold mb-2" for="grid-first-name">
+            大杯價錢
+          </label>
+          <input
+            class="appearance-none block w-full bg-gray-200 text-gray-700 border border-gray-300 rounded py-3 px-4 leading-tight focus:outline-none focus:bg-white focus:border-gray-500"
+            type="number" id="inputBigPrice" required>
+        </div>
+        <div class="w-full px-3 mt-2">
+          <label class="text-gray-700 text-lg font-bold mb-2 mr-4 cursor-pointer">
+            <input class="mr-2 leading-tight cursor-pointer" type="checkbox" value="HOT">
+            <span class="text-sm">
+              HOT
+            </span>
+          </label>
+          <label class="text-gray-700 text-lg font-bold mb-2 cursor-pointer">
+            <input class="mr-2 leading-tight cursor-pointer" type="checkbox" value="ICED">
+            <span class="text-sm">
+              ICED
+            </span>
+          </label>
+          <p id="checkboxError" class="hidden">請至少勾選一項</p>
+        </div>
+      </div>
+      <div class="text-center">
+        <button class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" id="saveButton"
+          type="submit">
+          確認
+        </button>
+      </div>
+    </form>
+    <iframe name="iframe" class="hidden"></iframe>
+  </section>
+  <script type="module" src="./js/all.js"></script>
+</body>
+
+</html>
