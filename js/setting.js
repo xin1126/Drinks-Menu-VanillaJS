@@ -44,7 +44,7 @@ const setCheckbox = () => {
 
 const resetValue = () => {
   form.reset();
-  menu[targetType]?.item.forEach((item) => {
+  menu.forEach((item) => {
     item.edit = false;
   });
   targetType = 0;
@@ -54,6 +54,15 @@ const resetValue = () => {
   settingType.classList.remove("hidden");
   selectDom.setAttribute("required", "required");
   inputTypeStatus(false);
+};
+
+const confirmTarget = () => {
+  menu.forEach((item, index) => {
+    item.edit = index === +targetType;
+  });
+  menu[targetType].item.forEach((item, index) => {
+    item.edit = index === +targetitem;
+  });
 };
 
 radio.forEach((item) => item.addEventListener("change", (e) => {
@@ -66,8 +75,7 @@ radio.forEach((item) => item.addEventListener("change", (e) => {
     setInputValue();
     setCheckbox();
 
-    menu[0].item[0].edit = true;
-    menu[0].edit = true;
+    confirmTarget();
   } else {
     resetValue();
   }
@@ -103,18 +111,12 @@ list.addEventListener("click", (e) => {
     return;
   }
 
-  menu.forEach((item, index) => {
-    item.edit = index === +targetType;
-  });
-  menu[targetType].item.forEach((item, index) => {
-    item.edit = index === +targetitem;
-  });
-
+  confirmTarget();
   renderList(menu, "edit");
 
-  setInputValue();
   checkboxData.length = 0;
   setCheckbox();
+  setInputValue();
 })
 
 export default (e) => {
